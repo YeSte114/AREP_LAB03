@@ -1,5 +1,6 @@
 package co.edu.escuelaing;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,11 +8,11 @@ import java.util.Map;
 public class MicroSpringBoot {
     static Map<String, Method> services = new HashMap<String, Method>();
 
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
         String className = args[0];
         Class c = Class.forName(className);
 
-        for (Method m : c.getMethods()){
+        for (Method m : c.getDeclaredMethods()){
             if (m.isAnnotationPresent(RequestMapping.class)){
                 try {
                     String URI = m.getAnnotation(RequestMapping.class).value();
@@ -24,6 +25,7 @@ public class MicroSpringBoot {
                 }
             }
         }
+        System.out.println(services.get("/hello").invoke(null));
 
     }
 }
