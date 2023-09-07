@@ -44,6 +44,28 @@ http://localhost:35000/apps/anonimo.html
 Si desea ver como tal un archivo deseado, como por ejemplo solo el css, ingrese al siguiente link:
 http://localhost:35000/apps/index.css
 
+
+## Pruebas Realizadas
+
+Funcionamiento del GET:
+![img5.png](imgs/img5.png)
+
+Funcionamiento del POST:
+![img2.png](imgs/img2.png)
+
+Como nos podemos dar cuenta al momento de realizar el post nuestra respuesta es un JSON, así mismo recibimos el código 201 el cual hace referencia a que la creación fue exitosa.
+
+- En caso de que el usuario indique un recurso que no existe en este momento lo dirigiremos a la siguiente pantalla:
+Funcionamiento del GET Error 404:
+![img3.png](imgs/img3.png)
+
+Tambiens e puede ver en Postman:
+![img1.png](imgs/img1.png)
+
+Otras pruebas:
+![img4.png](imgs/img4.png)
+
+
 ## Construcción
 
 * [Maven](https://maven.apache.org/) - Manejo de dependencias
@@ -62,7 +84,15 @@ http://localhost:35000/apps/index.css
 
 ##### Requerimientos:
 
-Escriba un servidor web que soporte múlltiples solicitudes seguidas (no concurrentes). El servidor debe leer los archivos del disco local y retornar todos los archivos solicitados, incluyendo páginas html, archivos java script, css e imágenes. Construya una aplicación web con  javascript, css, e imágenes para probar su servidor. Incluya en la aplicación la comunicación asíncrona con unos servicios REST en el backend. NO use frameworks web como Spark o Spring, use solo Java y las librerías para manejo de la red.
+En este taller usted debe explorar la arquitectura del microframework WEB denominado sparkweb (https://sparkjava.com/). Este micro framework permite construir aplicaciones web de manera simple usando funciones lambda.
+
+Para este ejercicio usted deb construir un  servidor web para soportar una funcionalidad similar a la de Spark. Su aplicación debe permitir por lo menos el registro de servicios get y post usando funciones lambda. Implemente igualmente funciones que le permitan configurar el directorio de los archivos estáticos, y otra que permita cambiar el tipo de la respuesta a "application/json". Para esto solo debe usar el API básico de Java. No utilice frameworks como Spark o Spring.
+
+Su servidor debe:
+1. Permite configurar servicios web de tipo GET y POST usando funciones lambda.
+2. Entrega archivos estáticos como páginas HTML, CSS, JS e imágenes.
+3. Permite configurar el directorio de donde se leerán los archivos estáticos.
+4. Permite leer parámetros del query  desde los programas.
 
 ## Documentación
 Se encontrar la documentación en la carpeta nombrada "javadoc", para generar nueva documentación puede correr el siguiente comando
